@@ -21,7 +21,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: sridhanush1307/hello_world:${{ env.DOCKER_TAG }}
+        tags: dhanushsensehawk/Hello_Server:${{ env.DOCKER_TAG }}
       env:
         DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN}}
         DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
