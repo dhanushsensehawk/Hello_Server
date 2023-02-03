@@ -20,8 +20,12 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Current Date insertion
+      id: date
+      run: |
+        echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag sridhanush1307/hello_world:latest1
+      run: docker build . --file Dockerfile --tag sridhanush1307/hello_world:${{ steps.date.outputs.date }}
     - name: docker push
       run: |
-        docker push sridhanush1307/hello_world:latest1
+        docker push sridhanush1307/hello_world:${{ steps.date.outputs.date }}
